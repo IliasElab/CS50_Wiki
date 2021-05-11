@@ -36,7 +36,6 @@ def search(request):
             entries = util.list_entries()
             results = []
             for entry in entries:
-                print(entry)
                 if request.POST["title"].lower() in entry.lower():
                     results.append(entry)
 

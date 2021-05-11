@@ -1,38 +1,72 @@
 {% load static %}
-
 <!DOCTYPE html>
-
 <html lang="en">
+
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Wiki Project from CS50 Course">
+        <meta name="author" content="Ilias Elab">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
         <title>{% block title %}{% endblock %}</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+
+        <!-- Bootstrap core CSS -->
+        <link href="{% static 'encyclopedia/vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'encyclopedia/assets/css/fontawesome.css' %}">
+        <link rel="stylesheet" href="{% static 'encyclopedia/assets/css/templatemo-style.css' %}">
     </head>
-    <body>
-        <div class="row">
-            <div class="sidebar col-lg-2 col-md-3">
-                <h2>Wiki</h2>
-                <form action="{% url 'search' %}" method="POST">
-                    {% csrf_token %}
-                    <input class="search" type="text" name="title" placeholder="Search Encyclopedia">
-                </form>
-                <div>
-                    <a href="{% url 'index' %}">Home</a>
+
+    <body class="is-preload">
+
+        <!-- Wrapper -->
+        <div id="wrapper">
+
+        <!-- Main -->
+            <div id="main">
+                <div class="inner">
+                    <!-- Header -->
+                    <header id="header">
+                        <div class="logo">
+                            <a href="{% url 'index' %}">Wiki Project</a>
+                        </div>
+                    </header>
+
+                    <section class="main-banner">
+                        {% block body %}
+                        {% endblock %}
+                    </section>
                 </div>
-                <div>
-                    <a href="{% url 'create' %}">Create New Page</a>
-                </div>
-                <div>
-                    <a href="{% url 'chance' %}">Random Page</a>
-                </div>
-                {% block nav %}
-                {% endblock %}
             </div>
-            <div class="main col-lg-10 col-md-9">
-                {% block body %}
-                {% endblock %}
+
+        <!-- Sidebar -->
+            <div id="sidebar">
+                <div class="inner">
+                    <!-- Search Box -->
+                    <section id="search" class="alt">
+                        <form action="{% url 'search' %}" method="POST">
+                            {% csrf_token %}
+                            <input class="search" type="text" name="title" id="search" placeholder="Search..." />
+                        </form>
+                    </section>
+
+                    <!-- Menu -->
+                    <nav id="menu">
+                        <ul>
+                            <li><a href="{% url 'index' %}">Homepage</a></li>
+                            <li><a href="{% url 'create' %}">Create New Page</a></li>
+                            <li><a href="{% url 'chance' %}">Random Page</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Footer -->
+                    <footer id="footer">
+                        <p class="copyright">
+                        <br>Created by : <a rel="nofollow" href="https://github.com/IliasElab">My Github</a>
+                        <!--  <br>Design inspired from <a rel="nofollow" href="https://www.facebook.com/templatemo">Template Mo</a></p> -->
+                    </footer>
+                </div>
             </div>
         </div>
-
     </body>
 </html>
