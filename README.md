@@ -8,6 +8,9 @@ Entries are in markdown format and can be added or updated using the website
 
 It is also possible to make a search to find the entry you look for <br /><br />
 
-<div align="center">Course provided by : 
-  <img style="margin: 0 auto;" alt="Harvard" src="https://online-learning.harvard.edu/sites/default/files/shields/harvard-engineering.png" />
+<div align="center">
+  <p>Associated Schools :</p>
+  <h3>Harvard School of Engineering and Applied Sciences</h3>
+  <img  alt="Harvard" src="https://online-learning.harvard.edu/sites/default/files/shields/harvard-engineering.png" />
 </div>
+
